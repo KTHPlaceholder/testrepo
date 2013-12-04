@@ -15,6 +15,10 @@
  *	 ./IsItGoingToRain 1 7
  *	 Output:
  *	 	no
+ * 
+ * Potential future development: 
+ * 	Instead of providing on query (whether it rained today or not) provide a string of days in which it rained
+ *	ie 0001110000 and calculate the Markov model from the input and then execute it for the future.
  *
  * Written by: Linus Kendall
  * Reviewed by: 
