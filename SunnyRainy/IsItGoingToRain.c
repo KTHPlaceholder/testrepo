@@ -2,18 +2,22 @@
  * A very naive and simple implementation of a very simple Markov state change based on 
  * https://en.wikipedia.org/wiki/Examples_of_Markov_chains#A_very_simple_weather_model
  *
- * Argument: 
- *   First argument: Whether it rained today (1) or not (0)
- *   Second argument: How many days from today you want to know whether it is going to rain or not
- *
- * Ís it going to rain tomorrow?
- * ./IsItGoingToRain 1 1
+ * Arguments: 
+ *   * First argument: Whether it rained today (1) or not (0)
+ *   * Second argument: How many days from today you want to know whether it is going to rain or not
  * 
- * Output:
- * 	yes
+ * Ís it going to rain tomorrow [if it rained today]?
+ * 	./IsItGoingToRain 1 1
+ * 	Output:
+ * 		yes
+ *
+ * Ís it going to rain in a week [if it rained today]?
+ *	 ./IsItGoingToRain 1 7
+ *	 Output:
+ *	 	no
  *
  * Written by: Linus Kendall
- * Reviewed by: ...
+ * Reviewed by: 
  */ 
 
 #include <stdio.h> /* PRINTF */
@@ -60,6 +64,9 @@ int main(int argc, char *argv[]) {
  * Arguments:
  * - today - whether it rained today or not
  * - noInvocations - for which day you would want to calculate it for
+ * 
+ * With sufficient number of invoications this will always return the result 0.167777
+ * ie. regardless of what the whether is today it will always be sunny in the long run with 83% probability!
  */
 double IsItGoingToRainOn(int today, int noInvocations) {
 	int i;
