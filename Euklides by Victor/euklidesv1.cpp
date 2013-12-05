@@ -14,11 +14,11 @@ int main()
 	divres = div(a, b);
 	while(divres.rem != 0)
 	{
-		p = divres.quot;
+		p = q;
 		q = divres.rem;
 		divres = div(p,  q);
 	}
-	printf("gcd(%d, %d) = %d\n", a, b, divres.quot);
+	printf("gcd(%d, %d) = %d\n", a, b, q);
 
 	return 0;
 }

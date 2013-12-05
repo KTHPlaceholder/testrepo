@@ -14,13 +14,13 @@ int main()
 	divres = div(a, b);
 	printf("%d = %d * %d + %d\n", a, b, divres.quot, divres.rem);
 	while(divres.rem != 0)
-	{
-		p = divres.quot;
+	{	
+		p = q;
 		q = divres.rem;
 		divres = div(p,  q);
 		printf("%d = %d * %d + %d\n", p , q, divres.quot, divres.rem);
 	}
-	printf("gcd(%d, %d) = %d\n", a, b, divres.quot);
+	printf("gcd(%d, %d) = %d\n", a, b, q);
 
 	return 0;
 }
