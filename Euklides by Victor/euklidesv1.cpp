@@ -18,7 +18,7 @@ int main()
 		q = divres.rem;
 		divres = div(p,  q);
 	}
-	printf("gcd(%d, %d) = %d", a, b, divres.quot);
+	printf("gcd(%d, %d) = %d\n", a, b, divres.quot);
 
 	return 0;
 }
