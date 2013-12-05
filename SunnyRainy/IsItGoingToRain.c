@@ -42,15 +42,11 @@ int main(int argc, char *argv[]) {
 	int today = atol(argv[1]);
 	int noInvoications = atol(argv[2]);
 
-	/* Set up the Markov model */
-	// Transition from sunny
-	markov[0][0] = 0.9; // to sunny
-	markov[0][1] = 0.5; // to rain
+	// TODO: no error checking on inputs, this will be OK though since atol return 0
 
-	// Transition from rain
-	markov[1][0] = 0.1; // to sunny
-	markov[1][1] = 0.5; // to rain
-	
+	/* Train the markov model */
+	train("1");
+
 	/* */ 
 	double rainProb = IsItGoingToRainOn(today, noInvoications);
 	if(rainProb > 0.5) {
@@ -63,7 +59,25 @@ int main(int argc, char *argv[]) {
 	return 0;
 }
 
-/* Function to calculate the likelihood for rain in <noInvoications> days.
+/* Train the markov model using supplied input 
+ *
+ * Input: weatherHistory, a bit string 011101100 where 1s mean that it was raining that day.
+ * Output: none.
+ * Global side effects.
+ */
+void train(char* weatherHistory) {
+	// Transition from sunny
+	markov[0][0] = 0.9; // to sunny
+	markov[0][1] = 0.5; // to rain
+
+	// Transition from rain
+	markov[1][0] = 0.1; // to sunny
+	markov[1][1] = 0.5; // to rain
+
+	return;
+}
+
+/* Calculate the likelihood for rain in <noInvoications> days.
  * 
  * Arguments:
  * - today - whether it rained today or not
