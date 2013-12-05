@@ -20,7 +20,7 @@ int main()
 		divres = div(p,  q);
 		printf("%d = %d * %d + %d\n", p , q, divres.quot, divres.rem);
 	}
-	printf("gcd(%d, %d) = %d", a, b, divres.quot);
+	printf("gcd(%d, %d) = %d\n", a, b, divres.quot);
 
 	return 0;
 }
