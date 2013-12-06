@@ -96,14 +96,6 @@ int train(const char* weatherHistory) {
 			int srcState = (weatherHistory[i] == '1' ? 1 : 0 );			
 			int dstState = (weatherHistory[i+1] == '1' ? 1 : 0 );		
 
-			if(srcState != 0 && srcState != 1) {
-				perror("Incorrect weather state. Only valid weather state is 0 = sunny, 1 = rain");
-				return -1;		
-			} else if(dstState != 0 && dstState != 1) {
-				perror("Incorrect weather state. Only valid weather state is 0 = sunny, 1 = rain");
-				return -1;	
-			}
-
 			markov[srcState][dstState]++;
 		} 
 
