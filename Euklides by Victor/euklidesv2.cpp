@@ -1,17 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
 #include <cstdlib>
+
+#include "euklidesv2.h"
+
 using namespace std;
 
-int main()
-{
-	int a,b,p,q;
-	div_t divres;
-	scanf("%d", &a);
-	scanf("%d", &b);
-	p = a;
-	q = b;
-	divres = div(a, b);
+int euklides(int a, int b) {
+	int p = a;
+	int q = b;
+	div_t divres = div(a, b);
 	printf("%d = %d * %d + %d\n", a, b, divres.quot, divres.rem);
 	while(divres.rem != 0)
 	{	
@@ -20,7 +17,6 @@ int main()
 		divres = div(p,  q);
 		printf("%d = %d * %d + %d\n", p , q, divres.quot, divres.rem);
 	}
-	printf("gcd(%d, %d) = %d\n", a, b, q);
-
-	return 0;
+	
+	return q;
 }
