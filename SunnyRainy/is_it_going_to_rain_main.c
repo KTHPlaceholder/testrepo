@@ -4,7 +4,6 @@
 
 #include "is_it_going_to_rain.h"
 
-double markov[2][2];
 
 int main(int argc, char *argv[]) {
 	// Check arguments
