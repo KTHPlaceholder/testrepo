@@ -36,7 +36,7 @@ TEST_F(SunnyRainyTest, PredictCorrect) {
 }
 // Test if SunnyRainy can train the markov model with a bitstring
 TEST_F(SunnyRainyTest, TrainMarkovModel) {
-	EXPECT_EQ(6, train(1001010));
+	EXPECT_EQ(6, train("1001010"));
 }
 	
 }  // namespace
