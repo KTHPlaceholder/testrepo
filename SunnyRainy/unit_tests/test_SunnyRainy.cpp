@@ -1,6 +1,6 @@
 
 #include "gtest/gtest.h"
-#include "../SunnyRainy/is_it_going_to_rain.h"
+#include "../is_it_going_to_rain.h"
 
 namespace {
 
@@ -31,13 +31,11 @@ class SunnyRainyTest : public ::testing::Test {
 };
 
 // Test if SunnyRainy can predict the weather correctly
-TEST_F(SunnyRainyTest, ) {
-
+TEST_F(SunnyRainyTest, PredictCorrect) {
+	EXPECT_EQ(1.0, predict(1, 1));
 }
 // Test if SunnyRainy can train the markov model with a bitstring
-TEST_F(SunnyRainyTest, ) {
-}
-
+	
 }  // namespace
 
 int main(int argc, char **argv) {
