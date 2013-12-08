@@ -6,7 +6,7 @@ main = do
 
 
 eulerTotient :: Integer -> Int
-eulerTotient n = length [i | i <- [1..n-1], coprime n i]
+eulerTotient n = length [i | i <- [1..n], coprime n i]
 
 coprime :: Integer -> Integer -> Bool
 coprime a b = euclid a b == 1
