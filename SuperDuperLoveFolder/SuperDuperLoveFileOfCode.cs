@@ -3,7 +3,7 @@ using System;
 public class Love
 {
 	int sum = 0;
-	int counter = 1000;
+	int counter = 999;
 	
 	public static void Main()
 	{
