@@ -1,13 +1,14 @@
 #include <string>
+#include <sstream>
 
 std::string fibonacci(int n)
 {
         using namespace std;
-        std::string result;
+        std::ostringstream oss;
         if(n == 0){
-                result.append("The Fibonacci number 0 is: 0\n");
+                oss << "The Fibonacci number 0 is: 0\n";
         }else if (n == 1 ){
-                result.append("The Fibonacci number 1 is: 1\n");
+                oss << "The Fibonacci number 1 is: 1\n";
         }else{
                 int fiba = 0;
                 int fibb = 1;
@@ -17,8 +18,12 @@ std::string fibonacci(int n)
                         fiba = fibb;
                         fibb = fib;
                 }
-                result.append("The Fibonacci number "+to_string(n)+" is: "+to_string(fib)+" \n");
+                oss << "The Fibonacci number ";
+                oss << n;
+                oss << " is: ";
+                oss << fib;
+                oss << " \n";
         }
 
-        return result;
+        return oss.str();
 }
