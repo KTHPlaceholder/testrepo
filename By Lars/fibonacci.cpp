@@ -1,15 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <cstdlib>
-using namespace std;
+#include <string>
 
-int main()
+std::string fibonacci(int n)
 {
-        printf("This is a boring program calculating the nth Fibonacci number.\nPlease enter which Fibonacci you want:");
-        int n;
-        scanf("%d",&n);
-        if(n == 1 || n == 0){
-                printf("The Fibonacci number %d is: %d\n",1,1);
+        using namespace std;
+        std::string result;
+        if(n == 0){
+                result.append("The Fibonacci number 0 is: 0\n");
+        }else if (n == 1 ){
+                result.append("The Fibonacci number 1 is: 1\n");
         }else{
                 int fiba = 0;
                 int fibb = 1;
@@ -19,8 +17,8 @@ int main()
                         fiba = fibb;
                         fibb = fib;
                 }
-                printf("The Fibonacci number %d is: %d \n",n,fib);
+                result.append("The Fibonacci number "+to_string(n)+" is: "+to_string(fib)+" \n");
         }
 
-        return 0;
+        return result;
 }
