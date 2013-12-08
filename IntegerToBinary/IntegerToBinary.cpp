@@ -7,33 +7,32 @@
 
 #include <stdio.h>
 #include <limits.h>
+#include <string>
 
-int main(int argc, const char * argv[]) {
-  long num;
+std::string IntegerToBinary(int a) {
   int bitwise_right_shifted;
+  std::string result;
   
-  printf("Enter positive integer: ");
-  scanf("%ld", &num);
-  
-  if(num > INT_MAX) {
-    printf("Integer is larger than 32 bit.");
-  } else if(num < 0) {
-    printf("Integer is negative.");
+  if(a > INT_MAX) {
+    result.append("Integer is larger than 32 bit.");
+  } else if(a < 0) {
+    result.append("Integer is negative.");
   } else {
-    printf("Binary representation (32 bit): ");
+    result.append("Binary representation (32 bit): ");
     // Since user input is an integer, cast long to int.
-    int num_int = (int) num;
+    int num_int = (int) a;
     
     for(int i = 31; i >= 0; i--) {
       // Bitwise right shift.
       bitwise_right_shifted = num_int >> i;
       // Bitwise AND.
       if(bitwise_right_shifted & 1) {
-        printf("1");
+        result.append("1");
       } else {
-        printf("0");
+        result.append("0");
       }
     }
   }
-  return 0;
+  return result;
 }
+
