@@ -29,7 +29,7 @@ CXXFLAGS += -g -Wall -Wextra -pthread -lstdc++
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = is_it_going_to_rain_unittest
+TESTS = isitgoingtorain_unittest
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -38,7 +38,7 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 
 # House-keeping build targets.
 
-all : $(TESTS)
+all : $(TESTS) isitgoingtorain
 
 clean :
 	rm -f $(TESTS) gtest.a gtest_main.a *.o
@@ -75,11 +75,11 @@ is_it_going_to_rain.o : $(USER_DIR)/is_it_going_to_rain.c $(USER_DIR)/is_it_goin
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/is_it_going_to_rain.c
 
 is_it_going_to_rain_main.o : $(USER_DIR)/is_it_going_to_rain_main.c $(USER_DIR)/is_it_going_to_rain.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/is_it_going_to_rain_main.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/is_it_going_to_rain_main.c
 
-is_it_going_to_rain_unittest.o : $(USER_DIR)/unit_tests/test_SunnyRainy.cpp \
+is_it_going_to_rain_unittest.o: $(USER_DIR)/unit_tests/test_SunnyRainy.cpp \
                      $(USER_DIR)/is_it_going_to_rain.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/unit_tests/test_SunnyRainy.cpp -o is_it_going_to_rain_unittest.o
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I$(GTEST_DIR) -c $(USER_DIR)/unit_tests/test_SunnyRainy.cpp -o is_it_going_to_rain_unittest.o
 
 isitgoingtorain_unittest: is_it_going_to_rain.o is_it_going_to_rain_unittest.o gtest.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
