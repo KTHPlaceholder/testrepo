@@ -41,7 +41,7 @@ double markov[2][2];
  * Global side effects.
  */
 int train(const char* weatherHistory) {
-	unsigned int i = 0;
+	unsigned int i = -1;
 
 	markov[0][0] = markov[0][1] = markov[1][0] = markov[1][1] = 0.0;
 
@@ -70,6 +70,16 @@ int train(const char* weatherHistory) {
 			markov[1][0] = markov[1][0] / total_from_rain; // from rain to sunny
 			markov[1][1] = markov[1][1] / total_from_rain; // from rain to rain
 		}
+	} else {
+		// Transition from sunny
+		markov[0][0] = 0.9; // to sunny
+		markov[0][1] = 0.5; // to rain
+
+		// Transition from rain
+		markov[1][0] = 0.1; // to sunny
+		markov[1][1] = 0.5; // to rain
+	
+		return 1;
 	}
 
 	return i;

@@ -28,14 +28,12 @@ int main(int argc, char *argv[]) {
 			perror("Training failed. Bailing.");
 			return -1;
 		}
-	} else {
-		// Transition from sunny
-		markov[0][0] = 0.9; // to sunny
-		markov[0][1] = 0.5; // to rain
-
-		// Transition from rain
-		markov[1][0] = 0.1; // to sunny
-		markov[1][1] = 0.5; // to rain
+	} else {	
+		int training = train("");
+		if(training == -1) { 
+			perror("Training failed. Bailing.");
+			return -1;
+		}
 	}
 
 	double rainProb = predict(today, noInvoications);
