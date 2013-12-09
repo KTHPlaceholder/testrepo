@@ -41,7 +41,11 @@ double markov[2][2];
  * Global side effects.
  */
 int train(const char* weatherHistory) {
+<<<<<<< HEAD
 	unsigned int i = -1;
+=======
+	unsigned int i = 0;
+>>>>>>> TestLinusFeatureBranch
 
 	markov[0][0] = markov[0][1] = markov[1][0] = markov[1][1] = 0.0;
 

@@ -39,7 +39,6 @@ TEST_F(SunnyRainyTest, PredictCorrect) {
 TEST_F(SunnyRainyTest, TrainMarkovModel) {
 	EXPECT_EQ(6, train("1001010"));
 }
-
 }  // namespace
 
 int main(int argc, char **argv) {
